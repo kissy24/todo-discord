@@ -1,22 +1,19 @@
 [project]
 name = "todo-discord"
 version = "0.1.0"
-description = "Add your description here"
-authors = [
-    { name = "kissy24" }
-]
+description = "t is a bot that registers and notifies todo on discord"
+authors = [{ name = "kissy24" }]
 dependencies = [
     "ruff>=0.2.2",
     "pytest>=8.0.1",
     "pytest-mock>=3.12.0",
     "pytest-cov>=4.1.0",
     "fastapi>=0.109.2",
+    "uvicorn>=0.27.1",
+    "discord>=2.3.2",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
-
-[project.scripts]
-hello = "todo_discord:hello"
 
 [build-system]
 requires = ["hatchling"]
@@ -31,3 +28,7 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/todo_discord"]
+
+[tool.rye.scripts]
+# These three options are equivalent:
+devserver = "uvicorn main:app --reload"
