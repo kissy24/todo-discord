@@ -1,13 +1,7 @@
 from fastapi import FastAPI
 
+from src.routers import todo, done
+
 app = FastAPI()
-
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
+app.include_router(todo.router)
+app.include_router(done.router)
