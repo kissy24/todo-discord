@@ -1,13 +1,13 @@
 from pydantic import BaseModel, Field
 
 
-class Task(BaseModel):
-    id: int
-    title: str | None = Field(None, example="Go to shopping")
-    done: bool = Field(False, description="Done flag")
+class TaskBase(BaseModel):
+    title: str | None = Field(None, example="クリーニングを取りに行く")
 
-class TaskCreate(BaseModel):
-    title: str | None = Field(None, example="Go to shopping")
+
+class TaskCreate(TaskBase):
+    pass
+
 
 class TaskCreateResponse(TaskCreate):
     id: int
