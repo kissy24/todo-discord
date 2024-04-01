@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 
-from src.models.task import Base
+from api.models.task import Base
 
 DB_URL = "sqlite:///./todo.db"
 engine = create_engine(DB_URL, echo=True)

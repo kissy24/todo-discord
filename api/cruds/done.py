@@ -2,7 +2,7 @@ from sqlalchemy import select
 from sqlalchemy.engine import Result
 from sqlalchemy.ext.asyncio import AsyncSession
 
-import src.models.task as task_model
+import api.models.task as task_model
 
 
 async def get_done(db: AsyncSession, task_id: int) -> task_model.Done | None:
